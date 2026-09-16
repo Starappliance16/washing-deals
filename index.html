@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Star Washing Machine Sales & Service Center offers quality-checked refurbished and second-hand washing machines in Avadi." />
+  <title>Star Washing Machine Sales & Service Center</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #112d3b;
+      --muted: #667d86;
+      --yellow: #edb53d;
+      --cream: #f4f0e7;
+      --blue: #dceaf0;
+      --line: #d9e0dd;
+      --background: #fbfaf7;
+      --foreground: #112d3b;
+      --border: #d9e0dd;
+      --ring: #edb53d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--background); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:not(:disabled), a[href] { cursor: pointer; }
+    .font-black, h1, h2, h3, .eyebrow { font-family: 'Space Grotesk', sans-serif; }
+    .sales-site { min-height: 100vh; overflow: hidden; background: #fbfaf7; }
+    
+    /* Header & Logo */
+    .site-header { position: absolute; inset: 0 0 auto; z-index: 10; display: flex; max-width: 1320px; margin: auto; align-items: center; justify-content: space-between; padding: 22px 38px; color: white; }
+    .brand-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-logo { height: 48px; max-height: 52px; width: auto; object-fit: contain; }
+
+    /* Buttons */
+    .whatsapp-button, .primary-button, .dark-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 999px; font-weight: 800; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .whatsapp-button { padding: 12px 18px; background: var(--yellow); color: var(--ink); box-shadow: 0 8px 20px rgba(0,0,0,0.12); font-size: 13px; }
+    .whatsapp-button:hover, .primary-button:hover, .dark-button:hover { transform: translateY(-2px); }
+    
+    /* Hero Section */
+    .showroom-hero { position: relative; min-height: 710px; color: white; background: #16384a; }
+    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,41,55,.94) 0%, rgba(15,41,55,.78) 37%, rgba(15,41,55,.08) 74%), linear-gradient(0deg, rgba(15,41,55,.35), transparent 40%); }
+    .hero-content { position: relative; display: flex; flex-direction: column; justify-content: space-between; max-width: 1320px; min-height: 710px; margin: auto; padding: 185px 38px 54px; }
+    .hero-copy { max-width: 550px; }
+    .eyebrow { margin: 0; color: #af7d16; font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow.light { color: #f4d37e; }
+    h1 { margin: 18px 0 0; font-size: clamp(52px, 7vw, 96px); line-height: .92; letter-spacing: -.07em; }
+    h1 em { color: var(--yellow); font-style: normal; }
+    .hero-sub { max-width: 480px; margin: 28px 0 0; color: #d8e4e7; font-size: 18px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 34px; }
+    .primary-button { padding: 15px 21px; background: var(--yellow); color: var(--ink); box-shadow: 0 10px 28px rgba(237,181,61,0.27); font-size: 14px; }
+    .text-button { display: inline-flex; align-items: center; gap: 3px; padding: 14px 4px; color: white; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .hero-note { display: flex; flex-wrap: wrap; gap: 28px; color: #f6f8f5; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .hero-note span { display: flex; align-items: center; gap: 8px; }
+
+    /* Trust Strip */
+    .trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1250px; margin: -1px auto 0; padding: 26px 38px; border-bottom: 1px solid var(--line); background: #fbfaf7; }
+    .trust-strip div { display: flex; align-items: center; gap: 13px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .trust-strip strong { color: var(--yellow); font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
+
+    /* Sections Shared */
+    .collection-section, .proof-section, .location-section { max-width: 1250px; margin: auto; padding: 108px 38px; }
+    .section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; }
+    h2 { margin: 14px 0 0; color: var(--ink); font-size: clamp(42px, 5vw, 68px); line-height: .97; letter-spacing: -.07em; }
+    h2 span { color: #93aeb8; }
+    .section-heading > p { max-width: 440px; justify-self: end; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+
+    /* Product Grid */
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
+    .product-card { min-height: 440px; padding: 16px; border-radius: 25px; transition: transform .22s ease, box-shadow .22s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(17,45,59,0.1); }
+    .product-card.cream { background: var(--cream); }
+    .product-card.blue { background: var(--blue); }
+    .product-card.dark { background: var(--ink); color: white; }
+    .product-image { display: grid; place-items: center; height: 240px; overflow: hidden; border-radius: 18px; background: rgba(255,255,255,0.33); }
+    .product-card.dark .product-image { background: #244b5d; }
+    
+    /* Machine Visuals */
+    .mini-machine { position: relative; width: 155px; height: 180px; border-radius: 15px 15px 25px 25px; background: linear-gradient(145deg, #f9fbf8, #b6c9c9); box-shadow: 10px 15px 20px rgba(17,45,59,0.14); }
+    .mini-machine::before { content: ''; position: absolute; left: 12px; right: 12px; top: 12px; height: 23px; border-radius: 8px; background: #dae6e2; box-shadow: inset 0 -4px 7px rgba(17,45,59,0.1); }
+    .mini-machine::after { content: ''; position: absolute; left: 50%; top: 18px; width: 28px; height: 7px; transform: translateX(-50%); border-radius: 99px; background: #18394c; }
+    .mini-machine.front div { position: absolute; inset: 49px 22px 23px; border: 10px solid #d7e4e2; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #63818a, #18394c 70%); }
+    .mini-machine.top { height: 150px; border-radius: 14px 14px 22px 22px; }
+    .mini-machine.top::before { height: 20px; }
+    .mini-machine.top div { position: absolute; left: 13px; right: 13px; top: 44px; height: 78px; border-radius: 12px 12px 25px 25px; background: #a5bcbb; box-shadow: inset 0 4px 7px rgba(255,255,255,0.5); }
+    .mini-machine.top div::after { content: ''; position: absolute; left: 50%; top: 13px; width: 86px; height: 55px; transform: translateX(-50%); border-radius: 50%; border: 8px solid #dae5e2; background: radial-gradient(circle at 35% 25%, #63818a, #18394c 70%); }
+    .mini-machine.all { transform: scale(.88); filter: grayscale(.9); }
+
+    .product-card > div:nth-child(2) { margin-top: 18px; padding: 0 6px; }
+    .product-card h3 { margin: 6px 0 0; font-size: 26px; letter-spacing: -.05em; }
+    .product-card .eyebrow { font-size: 9px; color: #8b9ca0; }
+    .product-card.dark .eyebrow { color: #f1c76d; }
+    .product-copy { min-height: 48px; margin: 13px 6px 0; color: #698089; font-size: 13px; line-height: 1.6; }
+    .product-card.dark .product-copy { color: #c5d6dc; }
+    .product-link { display: flex; align-items: center; gap: 5px; margin: 18px 6px 0; padding: 0; border: 0; background: none; color: var(--ink); font-size: 13px; font-weight: 800; cursor: pointer; }
+    .product-card.dark .product-link { color: var(--yellow); }
+
+    /* Proof Section */
+    .proof-section { display: grid; grid-template-columns: .95fr 1.05fr; gap: 74px; align-items: center; }
+    .proof-image-wrap { position: relative; }
+    .proof-image-wrap img { display: block; width: 100%; border-radius: 27px; box-shadow: 0 20px 42px rgba(17,45,59,0.1); }
+    .proof-badge { position: absolute; right: -16px; bottom: 24px; display: flex; align-items: center; gap: 7px; padding: 12px 15px; border-radius: 999px; background: var(--yellow); color: var(--ink); font-size: 12px; font-weight: 800; box-shadow: 0 8px 20px rgba(17,45,59,0.15); }
+    .proof-copy > p:not(.eyebrow) { max-width: 500px; margin: 23px 0 0; color: var(--muted); font-size: 17px; line-height: 1.7; }
+    .proof-copy ul { display: grid; gap: 13px; margin: 26px 0 30px; padding: 0; list-style: none; color: var(--ink); font-size: 14px; font-weight: 700; }
+    .proof-copy li { display: flex; align-items: center; gap: 9px; }
+    .dark-button { padding: 15px 21px; background: var(--ink); color: white; font-size: 14px; }
+
+    /* Location Section */
+    .location-section { display: grid; grid-template-columns: .85fr 1.15fr; gap: 50px; margin-top: 10px; padding-top: 90px; padding-bottom: 90px; border-top: 1px solid var(--line); }
+    .location-copy { max-width: 440px; margin: 22px 0 0; color: var(--muted); line-height: 1.7; }
+    .location-contact { display: flex; flex-wrap: wrap; gap: 20px; margin: 24px 0 29px; color: var(--ink); font-size: 13px; font-weight: 700; }
+    .location-contact span { display: flex; align-items: center; gap: 7px; }
+    .map-frame { min-height: 320px; overflow: hidden; border-radius: 22px; background: #e2edef; box-shadow: 0 16px 32px rgba(17,45,59,0.07); }
+    
+    /* Footer */
+    .site-footer { display: flex; max-width: 1250px; margin: auto; justify-content: space-between; padding: 28px 38px 38px; border-top: 1px solid var(--line); color: #84969a; font-size: 12px; }
+    .site-footer b { color: var(--ink); letter-spacing: .12em; }
+    
+    /* Floating WA */
+    .floating-wa { position: fixed; right: 23px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 55px; height: 55px; border: 0; border-radius: 50%; background: #1eaa6e; color: white; font-size: 20px; box-shadow: 0 11px 25px rgba(30,170,110,0.33); transition: transform .2s ease; }
+    .floating-wa:hover { transform: translateY(-3px); }
+
+    /* Delivery & Testimonials */
+    .delivery-section, .testimonials-section { max-width: 1250px; margin: auto; padding: 108px 38px; }
+    .delivery-section { border-top: 1px solid var(--line); }
+    .delivery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; margin-top: 52px; }
+    .delivery-card { min-height: 260px; padding: 23px; border-radius: 20px; background: #eef3f0; }
+    .delivery-card:nth-child(2) { background: #e1edf1; }
+    .delivery-card:nth-child(3) { background: #f4f0e7; }
+    .delivery-card:nth-child(4) { background: #112d3b; color: white; }
+    .delivery-icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 30px; border-radius: 14px; background: rgba(255,255,255,0.6); color: #b78117; font-size: 18px; }
+    .delivery-card > span { color: #a17b25; font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 800; }
+    .delivery-card:nth-child(4) > span { color: var(--yellow); }
+    .delivery-card h3 { margin: 10px 0 0; font-size: 19px; letter-spacing: -.04em; }
+    .delivery-card p { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .delivery-card:nth-child(4) p { color: #c7d5d9; }
+    .delivery-note { display: flex; align-items: center; gap: 8px; margin: 28px 0 23px; color: var(--muted); font-size: 13px; }
+    .testimonials-section { padding-top: 30px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
+    .testimonial-card { min-height: 280px; padding: 28px; border: 1px solid var(--line); border-radius: 23px; background: #fff; }
+    .testimonial-card.featured { border-color: var(--yellow); background: #f4f0e7; box-shadow: 0 12px 28px rgba(17,45,59,0.05); }
+    .stars { color: #d6a128; font-size: 15px; letter-spacing: .16em; }
+    .testimonial-card > p { min-height: 112px; margin: 20px 0 24px; color: #536d77; font-size: 15px; line-height: 1.65; }
+    .customer { display: flex; align-items: center; gap: 10px; }
+    .customer > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #dceaf0; color: var(--ink); font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 800; }
+    .customer b, .customer small { display: block; }
+    .customer b { color: var(--ink); font-size: 13px; }
+    .customer small { margin-top: 2px; color: #84969a; font-size: 11px; }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .site-header { padding: 18px 20px; }
+      .site-logo { height: 38px; }
+      .whatsapp-button { padding: 10px 14px; font-size: 12px; }
+      .showroom-hero, .hero-content { min-height: 685px; }
+      .hero-content { padding: 140px 20px 36px; }
+      .hero-overlay { background: linear-gradient(0deg, rgba(15,41,55,.97) 0%, rgba(15,41,55,.55) 57%, rgba(15,41,55,.18) 100%); }
+      .hero-image { object-position: 57% center; }
+      .hero-sub { font-size: 16px; line-height: 1.55; }
+      .hero-note { gap: 13px; font-size: 10px; }
+      .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 24px 20px; }
+      .trust-strip div { font-size: 11px; }
+      .collection-section, .proof-section, .location-section { padding: 72px 20px; }
+      .section-heading, .proof-section, .location-section { grid-template-columns: 1fr; gap: 28px; }
+      .section-heading > p { justify-self: start; font-size: 15px; }
+      .product-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 34px; }
+      .product-card { min-height: auto; padding: 13px; }
+      .product-image { height: 210px; }
+      .proof-image-wrap { max-width: 600px; }
+      .location-section { padding-top: 70px; }
+      .map-frame { min-height: 290px; }
+      .site-footer { flex-direction: column; gap: 10px; padding: 25px 20px 35px; }
+      .floating-wa { right: 16px; bottom: 16px; }
+      .delivery-section, .testimonials-section { padding: 72px 20px; }
+      .delivery-grid, .testimonial-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 34px; }
+      .delivery-card { min-height: auto; }
+      .delivery-icon { margin-bottom: 22px; }
+      .testimonial-card { min-height: auto; }
+      .testimonial-card > p { min-height: auto; }
+      .delivery-note { align-items: flex-start; line-height: 1.5; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy { animation: lift .65s cubic-bezier(.23,1,.32,1) both; }
+      @keyframes lift {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sales-site">
+    <!-- Header -->
+    <header class="site-header">
+      <a href="#home" class="brand-logo" aria-label="Star Washing Machine home">
+        <img src="assets/logo.webp" 
+             onerror="this.onerror=null;this.src='logo.webp'" 
+             alt="Star Washing Machine" 
+             class="site-logo" />
+      </a>
+      <button class="whatsapp-button" data-whatsapp="Hi Star Washing Machine, please share your available washing machines and prices.">◉ WhatsApp us</button>
+    </header>
+
+    <!-- Main Content -->
+    <main id="home">
+      <!-- Hero Section -->
+      <section class="showroom-hero">
+        <img src="assets/star-washer-showroom.jpg" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1400&q=80'"
+             alt="Front-load and top-load washing machines in the Star showroom" 
+             class="hero-image" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow light">Refurbished & second-hand appliances</p>
+            <h1>Buy Refurbished<br /><em>Washing Machines.</em></h1>
+            <p class="hero-sub">Reliable washing machines from all major brands — quality checked, serviced, tested, and priced for real homes.</p>
+            <div class="hero-actions">
+              <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I want to see your available front-load and top-load washing machines.">View available machines →</button>
+              <a href="#collection" class="text-button">Browse by type ›</a>
+            </div>
+          </div>
+          <div class="hero-note">
+            <span>✓ Tested before sale</span>
+            <span>★ Sales & service support</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Strip -->
+      <section class="trust-strip">
+        <div><strong>01</strong><span>Quality checked</span></div>
+        <div><strong>02</strong><span>Serviced by technicians</span></div>
+        <div><strong>03</strong><span>Affordable pricing</span></div>
+        <div><strong>04</strong><span>After-sales support</span></div>
+      </section>
+
+      <!-- Collection Section -->
+      <section id="collection" class="collection-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shop the collection</p>
+            <h2>Good machines.<br /><span>Honest prices.</span></h2>
+          </div>
+          <p>Choose the style that fits your home. We’ll help you compare models, features, condition and price on WhatsApp.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card cream">
+            <div class="product-image"><div class="mini-machine front"><div></div></div></div>
+            <p class="eyebrow">Popular choice</p>
+            <h3>Front Load</h3>
+            <p class="product-copy">Efficient cycles, gentle care and a clean, modern fit.</p>
+            <button class="product-link" data-whatsapp="Hi Star Washing Machine, I am interested in Front Load washing machines. Please share available models and prices.">Check availability ›</button>
+          </article>
+          <article class="product-card blue">
+            <div class="product-image"><div class="mini-machine top"><div></div></div></div>
+            <p class="eyebrow">Family favourite</p>
+            <h3>Top Load</h3>
+            <p class="product-copy">Easy loading, practical controls and everyday reliability.</p>
+            <button class="product-link" data-whatsapp="Hi Star Washing Machine, I am interested in Top Load washing machines. Please share available models and prices.">Check availability ›</button>
+          </article>
+          <article class="product-card dark">
+            <div class="product-image"><div class="mini-machine all"><div></div></div></div>
+            <p class="eyebrow">Family favourite</p>
+            <h3>All Major Brands</h3>
+            <p class="product-copy">Explore trusted names and available models in one place.</p>
+            <button class="product-link" data-whatsapp="Hi Star Washing Machine, please share washing machines from all major brands.">Check availability ›</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Proof Section -->
+      <section class="proof-section">
+        <div class="proof-image-wrap">
+          <img src="assets/star-washer-detail.jpg" 
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=800&q=80'"
+               alt="Close-up of a clean, tested washing machine drum" />
+          <div class="proof-badge">✓ Serviced & tested</div>
+        </div>
+        <div class="proof-copy">
+          <p class="eyebrow">Why buy from Star?</p>
+          <h2>We make second-hand feel <span>like the smart choice.</span></h2>
+          <p>Every machine is inspected with care before it is recommended. You get a clear conversation, fair pricing and support after the sale — not a mystery box.</p>
+          <ul>
+            <li>✓ Condition explained clearly</li>
+            <li>✓ Models for every budget</li>
+            <li>✓ Sales and service in one place</li>
+          </ul>
+          <button class="dark-button" data-whatsapp="Hi Star Washing Machine, please help me choose a quality-checked washing machine for my home.">Talk to a washing machine expert →</button>
+        </div>
+      </section>
+
+      <!-- Delivery Section -->
+      <section class="delivery-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">From our center to your home</p>
+            <h2>Delivery made<br /><span>simple.</span></h2>
+          </div>
+          <p>We help coordinate a smooth handover, from confirming your machine to getting it safely into position at home.</p>
+        </div>
+        <div class="delivery-grid">
+          <article class="delivery-card">
+            <div class="delivery-icon">▣</div>
+            <span>01</span>
+            <h3>Confirm your machine</h3>
+            <p>Choose your model, capacity, condition and price on WhatsApp. We’ll confirm availability before delivery.</p>
+          </article>
+          <article class="delivery-card">
+            <div class="delivery-icon">⌂</div>
+            <span>02</span>
+            <h3>Safe local delivery</h3>
+            <p>We arrange delivery from our Thirumullaivoyal center to your home. Delivery timing and charges are confirmed in advance.</p>
+          </article>
+          <article class="delivery-card">
+            <div class="delivery-icon">⚒</div>
+            <span>03</span>
+            <h3>Placement & installation</h3>
+            <p>Our team can help position the machine, connect it correctly and check the first run. Ask us about installation support for your location.</p>
+          </article>
+          <article class="delivery-card">
+            <div class="delivery-icon">◷</div>
+            <span>04</span>
+            <h3>After-sale support</h3>
+            <p>Need help after installation? Message us on WhatsApp for service support and practical guidance.</p>
+          </article>
+        </div>
+        <div class="delivery-note">✓ Delivery area, fee and installation availability vary by location — message us with your address for a quick quote.</div>
+        <button class="dark-button" data-whatsapp="Hi Star Washing Machine, please share delivery and installation options for my address.">Ask about delivery & installation →</button>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Customer stories</p>
+            <h2>Good machines.<br /><span>Happy homes.</span></h2>
+          </div>
+          <p>What matters after the sale is how the machine performs at home. Here’s what customers say about the Star experience.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>“The team explained the condition and options clearly. We found a good front-load machine within our budget and the process was very easy.”</p>
+            <div class="customer">
+              <span>PR</span>
+              <div><b>Priya R.</b><small>Thirumullaivoyal</small></div>
+            </div>
+          </article>
+          <article class="testimonial-card featured">
+            <div class="stars">★★★★★</div>
+            <p>“I was looking for a reliable top-load washer. Star shared the available models on WhatsApp and helped us choose the right one for our family.”</p>
+            <div class="customer">
+              <span>SK</span>
+              <div><b>Suresh K.</b><small>Avadi</small></div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>“Good service from enquiry to setup. The machine was tested properly and the pricing felt fair compared with buying new.”</p>
+            <div class="customer">
+              <span>LM</span>
+              <div><b>Lavanya M.</b><small>Cholapuram</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Location Section -->
+      <section class="location-section">
+        <div>
+          <p class="eyebrow">Visit our center</p>
+          <h2>See it. Test it.<br /><span>Take it home.</span></h2>
+          <p class="location-copy">No.182, Kalikambal Nagar, Indhira Gandhi St, near Old Kannan theatre, Shobha Nagar, Cholapuram, Thirumullaivoyal, Avadi, Tamil Nadu 600062</p>
+          <div class="location-contact">
+            <span>☎ 09087838282</span>
+            <span>⌖ Open for enquiries</span>
+          </div>
+          <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I would like directions and current available models.">Get directions on WhatsApp →</button>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2787.7633289687624!2d80.140447!3d13.120301800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52638baaed829d%3A0x57db6ef02687cbc9!2sStar%20washing%20Machine%20Sales%20and%20Service%20Spare!5e1!3m2!1sen!2sin!4v1789562047075!5m2!1sen!2sin" width="100%" height="100%" style="border:0;min-height:320px" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Star Washing Machine location"></iframe>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span><b>STAR</b> Washing Machine Sales & Service Center</span>
+      <span>Refurbished machines. Real support.</span>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button -->
+    <button class="floating-wa" data-whatsapp="Hi Star Washing Machine, please share your available washing machines and prices." aria-label="Message Star Washing Machine on WhatsApp">◉</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const whatsappNumber = "919087838282";
+
+    // Handle WhatsApp Clicks
+    document.querySelectorAll("[data-whatsapp]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const message = button.getAttribute("data-whatsapp") || "Hi Star Washing Machine, please share your available washing machines and prices.";
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    });
+
+    // Smooth Scroll for Anchors
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
