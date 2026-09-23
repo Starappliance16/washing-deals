@@ -113,10 +113,20 @@
     .service-address p { margin: 0 0 18px; color: #af7d16; font: 800 11px 'Space Grotesk', sans-serif; letter-spacing: .15em; text-transform: uppercase; }
     .service-address strong { color: var(--ink); font-size: 16px; line-height: 1.75; }
     
-    /* Footer & Floating WA */
+    /* Footer & Floating Call */
     .site-footer { display: flex; max-width: 1250px; margin: auto; justify-content: space-between; padding: 28px 38px 38px; border-top: 1px solid var(--line); color: #84969a; font-size: 12px; }
     .site-footer b { color: var(--ink); letter-spacing: .12em; }
-    .floating-wa { position: fixed; right: 23px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 55px; height: 55px; border: 0; border-radius: 50%; background: #1eaa6e; color: white; box-shadow: 0 11px 25px #1eaa6e55; font-size: 20px; }
+    .floating-call { position: fixed; right: 23px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 55px; height: 55px; border: 0; border-radius: 50%; background: #1eaa6e; color: white; box-shadow: 0 11px 25px #1eaa6e55; font-size: 22px; text-decoration: none; transition: transform .2s ease; }
+    .floating-call:hover { transform: translateY(-3px); }
+    
+    /* Premium phone icon */
+    .icon-phone {
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+    }
 
     /* Service Hero Image & Adjustments */
     .service-hero-image { position: absolute; inset: 0; opacity: .34; }
@@ -204,7 +214,7 @@
 </head>
 <body>
   <div class="service-page">
-    <!-- Header — changed button to Call for Inquiry -->
+    <!-- Header — Call for Inquiry with premium icon -->
     <header class="service-header">
       <a href="#top" class="brand-logo" aria-label="Star Washing Machine home">
         <img src="assets/logo.webp" 
@@ -212,9 +222,12 @@
              alt="Star Washing Machine" 
              class="site-logo" />
       </a>
-      <!-- Call for inquiry button replacing the WhatsApp button -->
+      <!-- Call for inquiry button with premium phone icon -->
       <a href="tel:+919087838282" class="whatsapp-button" style="text-decoration: none; gap: 7px;">
-        <span style="font-size: 16px;">📞</span> Call for inquiry
+        <svg class="icon-phone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.2 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.25 1.11l-2.2 2.2z"/>
+        </svg>
+        Call for inquiry
       </a>
     </header>
 
@@ -235,13 +248,13 @@
           
           <p class="service-lead">Professional washing machine servicing for all major brands, front-load and top-load models in and around Avadi.</p>
           <div class="hero-actions">
-            <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I need washing machine servicing. My machine is a [front-load/top-load] model from [brand]. Please help me book a visit.">Book a service visit →</button>
+            <button class="primary-button" data-call="Hi Star Washing Machine, I need washing machine servicing. My machine is a [front-load/top-load] model from [brand]. Please help me book a visit.">Book a service visit →</button>
             <a href="#service-types" class="text-button">View service types ›</a>
           </div>
           <div class="service-points">
             <span>✓ Trained technicians</span>
             <span>✓ Clear diagnosis</span>
-            <span>✓ WhatsApp support</span>
+            <span>✓ Call support</span>
           </div>
         </div>
         
@@ -292,28 +305,28 @@
             <div class="service-icon">⚒</div>
             <h3>Front load service</h3>
             <p>Door lock, drum noise, drainage, vibration, water inlet, heating and wash-cycle issues.</p>
-            <button class="service-link" data-whatsapp="Hi Star Washing Machine, I need front load washing machine service. Please guide me.">Ask about this service ›</button>
+            <button class="service-link" data-call="Hi Star Washing Machine, I need front load washing machine service. Please guide me.">Ask about this service ›</button>
           </article>
           <article class="service-card">
             <span>02</span>
             <div class="service-icon">⚒</div>
             <h3>Top load service</h3>
             <p>Pulsator, lid switch, spin, water level, drainage and control panel problems.</p>
-            <button class="service-link" data-whatsapp="Hi Star Washing Machine, I need top load washing machine service. Please guide me.">Ask about this service ›</button>
+            <button class="service-link" data-call="Hi Star Washing Machine, I need top load washing machine service. Please guide me.">Ask about this service ›</button>
           </article>
           <article class="service-card">
             <span>03</span>
             <div class="service-icon">⚒</div>
             <h3>All brand service</h3>
             <p>Technician support for major brands and models, subject to parts availability.</p>
-            <button class="service-link" data-whatsapp="Hi Star Washing Machine, I need service for my washing machine brand and model. Please guide me.">Ask about this service ›</button>
+            <button class="service-link" data-call="Hi Star Washing Machine, I need service for my washing machine brand and model. Please guide me.">Ask about this service ›</button>
           </article>
           <article class="service-card">
             <span>04</span>
             <div class="service-icon">⚒</div>
             <h3>Installation & setup</h3>
             <p>Correct placement, inlet/outlet connection, leveling and first-cycle checks.</p>
-            <button class="service-link" data-whatsapp="Hi Star Washing Machine, I need washing machine installation and setup support.">Ask about this service ›</button>
+            <button class="service-link" data-call="Hi Star Washing Machine, I need washing machine installation and setup support.">Ask about this service ›</button>
           </article>
         </div>
       </section>
@@ -323,8 +336,8 @@
         <div class="symptom-copy">
           <p class="eyebrow">Common problems we check</p>
           <h2>Is your machine<br /><span>trying to tell you something?</span></h2>
-          <p>Send us a short video or photo on WhatsApp if helpful. It lets our team understand the issue before the visit.</p>
-          <button class="dark-button" data-whatsapp="Hi Star Washing Machine, my washing machine has a problem. Brand: __. Model: __. Issue: __. Please advise.">Describe your problem ◉</button>
+          <p>Call us and describe the issue. Our team can understand the problem and advise the next step.</p>
+          <button class="dark-button" data-call="Hi Star Washing Machine, my washing machine has a problem. Brand: __. Model: __. Issue: __. Please advise.">Describe your problem ◉</button>
         </div>
         <div class="symptom-list">
           <div>✦ Not starting / power issue</div>
@@ -350,11 +363,11 @@
           </details>
           <details>
             <summary>Which brands do you service?</summary>
-            <p>Message us with the brand and model. We will confirm service availability and guide you on the next step.</p>
+            <p>Call us with the brand and model. We will confirm service availability and guide you on the next step.</p>
           </details>
           <details>
-            <summary>Can I share a video of the problem?</summary>
-            <p>Yes. A short video, photo or error-code image on WhatsApp can help us understand the symptom before the visit.</p>
+            <summary>Can I describe the problem over the phone?</summary>
+            <p>Yes. A short description over the phone can help us understand the symptom before the visit.</p>
           </details>
           <details>
             <summary>Will the price be confirmed before repair?</summary>
@@ -374,8 +387,8 @@
         <div class="process-grid">
           <div>
             <b>01</b>
-            <h3>Message us</h3>
-            <p>Share your brand, model, location and problem on WhatsApp.</p>
+            <h3>Call us</h3>
+            <p>Share your brand, model, location and problem over the phone.</p>
           </div>
           <div>
             <b>02</b>
@@ -399,10 +412,10 @@
       <section class="service-contact">
         <div>
           <p class="eyebrow">Need a washing machine technician?</p>
-          <h2>Book your service<br /><span>on WhatsApp.</span></h2>
-          <p>Serving Thirumullaivoyal, Avadi, Cholapuram, Shobha Nagar and nearby areas. For other locations, message us to check availability.</p>
+          <h2>Book your service<br /><span>by phone.</span></h2>
+          <p>Serving Thirumullaivoyal, Avadi, Cholapuram, Shobha Nagar and nearby areas. For other locations, call us to check availability.</p>
           <div class="service-phone">☎ 09087838282</div>
-          <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I need washing machine servicing. Please help me book a visit.">Chat with Star service team ◉</button>
+          <button class="primary-button" data-call="Hi Star Washing Machine, I need washing machine servicing. Please help me book a visit.">Call Star service team ◉</button>
         </div>
         
         <div class="service-location-wrap">
@@ -427,20 +440,22 @@
       <span>Service • Repair • Support</span>
     </footer>
     
-    <!-- Floating WA -->
-    <button class="floating-wa" data-whatsapp="Hi Star Washing Machine, I need washing machine servicing." aria-label="Book washing machine service on WhatsApp">◉</button>
+    <!-- Floating Call Button with premium phone icon -->
+    <a href="tel:+919087838282" class="floating-call" aria-label="Call Star Washing Machine">
+      <svg class="icon-phone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 24px; height: 24px;">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.2 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.25 1.11l-2.2 2.2z"/>
+      </svg>
+    </a>
   </div>
 
   <!-- JavaScript Setup -->
   <script>
-    const whatsappNumber = "919087838282";
+    const phoneNumber = "+919087838282";
 
-    // Dynamic WhatsApp Redirection
-    document.querySelectorAll("[data-whatsapp]").forEach((button) => {
+    // Handle Call Clicks for all data-call buttons
+    document.querySelectorAll("[data-call]").forEach((button) => {
       button.addEventListener("click", () => {
-        const message = button.getAttribute("data-whatsapp") || "Hi Star Washing Machine, I need washing machine servicing.";
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
+        window.location.href = `tel:${phoneNumber}`;
       });
     });
 
