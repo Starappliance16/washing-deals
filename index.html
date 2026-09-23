@@ -122,9 +122,18 @@
     .site-footer { display: flex; max-width: 1250px; margin: auto; justify-content: space-between; padding: 28px 38px 38px; border-top: 1px solid var(--line); color: #84969a; font-size: 12px; }
     .site-footer b { color: var(--ink); letter-spacing: .12em; }
     
-    /* Floating WA */
-    .floating-wa { position: fixed; right: 23px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 55px; height: 55px; border: 0; border-radius: 50%; background: #1eaa6e; color: white; font-size: 20px; box-shadow: 0 11px 25px rgba(30,170,110,0.33); transition: transform .2s ease; }
-    .floating-wa:hover { transform: translateY(-3px); }
+    /* Floating Call */
+    .floating-call { position: fixed; right: 23px; bottom: 22px; z-index: 20; display: grid; place-items: center; width: 55px; height: 55px; border: 0; border-radius: 50%; background: #1eaa6e; color: white; font-size: 22px; box-shadow: 0 11px 25px rgba(30,170,110,0.33); transition: transform .2s ease; text-decoration: none; }
+    .floating-call:hover { transform: translateY(-3px); }
+    
+    /* Premium phone icon */
+    .icon-phone {
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+    }
 
     /* Delivery & Testimonials */
     .delivery-section, .testimonials-section { max-width: 1250px; margin: auto; padding: 108px 38px; }
@@ -176,7 +185,7 @@
       .location-section { padding-top: 70px; }
       .map-frame { min-height: 290px; }
       .site-footer { flex-direction: column; gap: 10px; padding: 25px 20px 35px; }
-      .floating-wa { right: 16px; bottom: 16px; }
+      .floating-call { right: 16px; bottom: 16px; }
       .delivery-section, .testimonials-section { padding: 72px 20px; }
       .delivery-grid, .testimonial-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 34px; }
       .delivery-card { min-height: auto; }
@@ -196,7 +205,7 @@
 </head>
 <body>
   <div class="sales-site">
-    <!-- Header — changed button to Call for Inquiry -->
+    <!-- Header — Call for Inquiry with premium icon -->
     <header class="site-header">
       <a href="#home" class="brand-logo" aria-label="Star Washing Machine home">
         <img src="assets/logo.webp" 
@@ -204,9 +213,12 @@
              alt="Star Washing Machine" 
              class="site-logo" />
       </a>
-      <!-- Call for inquiry button replacing the WhatsApp button -->
+      <!-- Call for inquiry button with premium phone icon -->
       <a href="tel:+919087838282" class="whatsapp-button" style="text-decoration: none; gap: 7px;">
-        <span style="font-size: 16px;">📞</span> Call for inquiry
+        <svg class="icon-phone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.2 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.25 1.11l-2.2 2.2z"/>
+        </svg>
+        Call for inquiry
       </a>
     </header>
 
@@ -225,7 +237,7 @@
             <h1>Buy Refurbished<br /><em>Washing Machines.</em></h1>
             <p class="hero-sub">Reliable washing machines from all major brands — quality checked, serviced, tested, and priced for real homes.</p>
             <div class="hero-actions">
-              <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I want to see your available front-load and top-load washing machines.">View available machines →</button>
+              <button class="primary-button" data-call="Hi Star Washing Machine, I want to see your available front-load and top-load washing machines.">View available machines →</button>
               <a href="#collection" class="text-button">Browse by type ›</a>
             </div>
           </div>
@@ -251,7 +263,7 @@
             <p class="eyebrow">Shop the collection</p>
             <h2>Good machines.<br /><span>Honest prices.</span></h2>
           </div>
-          <p>Choose the style that fits your home. We’ll help you compare models, features, condition and price on WhatsApp.</p>
+          <p>Choose the style that fits your home. We’ll help you compare models, features, condition and price on call.</p>
         </div>
         <div class="product-grid">
           <article class="product-card cream">
@@ -259,21 +271,21 @@
             <p class="eyebrow">Popular choice</p>
             <h3>Front Load</h3>
             <p class="product-copy">Efficient cycles, gentle care and a clean, modern fit.</p>
-            <button class="product-link" data-whatsapp="Hi Star Washing Machine, I am interested in Front Load washing machines. Please share available models and prices.">Check availability ›</button>
+            <button class="product-link" data-call="Hi Star Washing Machine, I am interested in Front Load washing machines. Please share available models and prices.">Check availability ›</button>
           </article>
           <article class="product-card blue">
             <div class="product-image"><div class="mini-machine top"><div></div></div></div>
             <p class="eyebrow">Family favourite</p>
             <h3>Top Load</h3>
             <p class="product-copy">Easy loading, practical controls and everyday reliability.</p>
-            <button class="product-link" data-whatsapp="Hi Star Washing Machine, I am interested in Top Load washing machines. Please share available models and prices.">Check availability ›</button>
+            <button class="product-link" data-call="Hi Star Washing Machine, I am interested in Top Load washing machines. Please share available models and prices.">Check availability ›</button>
           </article>
           <article class="product-card dark">
             <div class="product-image"><div class="mini-machine all"><div></div></div></div>
             <p class="eyebrow">Family favourite</p>
             <h3>All Major Brands</h3>
             <p class="product-copy">Explore trusted names and available models in one place.</p>
-            <button class="product-link" data-whatsapp="Hi Star Washing Machine, please share washing machines from all major brands.">Check availability ›</button>
+            <button class="product-link" data-call="Hi Star Washing Machine, please share washing machines from all major brands.">Check availability ›</button>
           </article>
         </div>
       </section>
@@ -295,7 +307,7 @@
             <li>✓ Models for every budget</li>
             <li>✓ Sales and service in one place</li>
           </ul>
-          <button class="dark-button" data-whatsapp="Hi Star Washing Machine, please help me choose a quality-checked washing machine for my home.">Talk to a washing machine expert →</button>
+          <button class="dark-button" data-call="Hi Star Washing Machine, please help me choose a quality-checked washing machine for my home.">Talk to a washing machine expert →</button>
         </div>
       </section>
 
@@ -313,7 +325,7 @@
             <div class="delivery-icon">▣</div>
             <span>01</span>
             <h3>Confirm your machine</h3>
-            <p>Choose your model, capacity, condition and price on WhatsApp. We’ll confirm availability before delivery.</p>
+            <p>Choose your model, capacity, condition and price on call. We’ll confirm availability before delivery.</p>
           </article>
           <article class="delivery-card">
             <div class="delivery-icon">⌂</div>
@@ -331,11 +343,11 @@
             <div class="delivery-icon">◷</div>
             <span>04</span>
             <h3>After-sale support</h3>
-            <p>Need help after installation? Message us on WhatsApp for service support and practical guidance.</p>
+            <p>Need help after installation? Call us for service support and practical guidance.</p>
           </article>
         </div>
-        <div class="delivery-note">✓ Delivery area, fee and installation availability vary by location — message us with your address for a quick quote.</div>
-        <button class="dark-button" data-whatsapp="Hi Star Washing Machine, please share delivery and installation options for my address.">Ask about delivery & installation →</button>
+        <div class="delivery-note">✓ Delivery area, fee and installation availability vary by location — call us with your address for a quick quote.</div>
+        <button class="dark-button" data-call="Hi Star Washing Machine, please share delivery and installation options for my address.">Ask about delivery & installation →</button>
       </section>
 
       <!-- Testimonials -->
@@ -358,7 +370,7 @@
           </article>
           <article class="testimonial-card featured">
             <div class="stars">★★★★★</div>
-            <p>“I was looking for a reliable top-load washer. Star shared the available models on WhatsApp and helped us choose the right one for our family.”</p>
+            <p>“I was looking for a reliable top-load washer. Star shared the available models on call and helped us choose the right one for our family.”</p>
             <div class="customer">
               <span>SK</span>
               <div><b>Suresh K.</b><small>Avadi</small></div>
@@ -385,7 +397,7 @@
             <span>☎ 09087838282</span>
             <span>⌖ Open for enquiries</span>
           </div>
-          <button class="primary-button" data-whatsapp="Hi Star Washing Machine, I would like directions and current available models.">Get directions on WhatsApp →</button>
+          <button class="primary-button" data-call="Hi Star Washing Machine, I would like directions and current available models.">Get directions on call →</button>
         </div>
         <div class="map-frame">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2787.7633289687624!2d80.140447!3d13.120301800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52638baaed829d%3A0x57db6ef02687cbc9!2sStar%20washing%20Machine%20Sales%20and%20Service%20Spare!5e1!3m2!1sen!2sin!4v1789562047075!5m2!1sen!2sin" width="100%" height="100%" style="border:0;min-height:320px" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Star Washing Machine location"></iframe>
@@ -399,20 +411,23 @@
       <span>Refurbished machines. Real support.</span>
     </footer>
 
-    <!-- WhatsApp Floating Action Button -->
-    <button class="floating-wa" data-whatsapp="Hi Star Washing Machine, please share your available washing machines and prices." aria-label="Message Star Washing Machine on WhatsApp">◉</button>
+    <!-- Floating Call Button with premium phone icon -->
+    <a href="tel:+919087838282" class="floating-call" aria-label="Call Star Washing Machine">
+      <svg class="icon-phone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 24px; height: 24px;">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.2 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.25 1.11l-2.2 2.2z"/>
+      </svg>
+    </a>
   </div>
 
   <!-- JavaScript -->
   <script>
-    const whatsappNumber = "919087838282";
+    const phoneNumber = "+919087838282";
 
-    // Handle WhatsApp Clicks
-    document.querySelectorAll("[data-whatsapp]").forEach((button) => {
+    // Handle Call Clicks for all data-call buttons
+    document.querySelectorAll("[data-call]").forEach((button) => {
       button.addEventListener("click", () => {
-        const message = button.getAttribute("data-whatsapp") || "Hi Star Washing Machine, please share your available washing machines and prices.";
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
+        // We can optionally log or just initiate call
+        window.location.href = `tel:${phoneNumber}`;
       });
     });
 
